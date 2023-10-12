@@ -1,3 +1,5 @@
-<app-header></app-header>
-<app-main></app-main>
+<app-header
+  (onAddValue)="updateContent($event)"
+></app-header>
+<app-main [imageArray]="imageArray"></app-main>
 <app-footer></app-footer>
