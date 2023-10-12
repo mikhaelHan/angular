@@ -1,0 +1,14 @@
+<header>
+  <div class='wrapper'>
+    <div class='head-container'>
+      <section class='head-container__left'>
+        <img alt='logo' class='head-container__image' src='../../assets/images/logo.svg'>
+        <h1 class='head-container__title'>Unsplash API</h1>
+      </section>
+      <section class='head-container__right'>
+        <input (keydown.enter)='onClick()' [(ngModel)]='inputValue' class='head-container__input'
+          placeholder='Search...' type='search'>
+      </section>
+    </div>
+  </div>
+</header>
