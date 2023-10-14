@@ -1,6 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {IApiRequest, IResults} from '../client_Api/Api.interfaces';
-import {ClientApi} from '../client_Api/Client.Api';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { IApiRequest, IResults } from '../client_Api/Api.interfaces';
+import { ClientApi } from '../client_Api/Client.Api';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +8,14 @@ import {ClientApi} from '../client_Api/Client.Api';
   styleUrls: ['./header.component.scss', '../app.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Output() onAddValue: EventEmitter<IResults[]> = new EventEmitter<IResults[]>();
+  @Output() onAddValue: EventEmitter<IResults[]> = new EventEmitter<
+    IResults[]
+  >();
   inputValue = '';
   private clientApi: ClientApi;
 
-  // @ts-ignore
-  async constructor() {
+  constructor() {
     this.clientApi = new ClientApi();
-    this.getContent('car').then((data: (IResults[] | null)) => {
-      if (data) this.onAddValue.emit(data)
-    })
   }
 
   async getContent(word: string): Promise<IResults[] | null> {
@@ -29,13 +27,16 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getContent('car').then((data: IResults[] | null) => {
+      if (data) this.onAddValue.emit(data);
+    });
   }
 
   onClick() {
     if (this.inputValue.trim()) {
-      this.getContent(this.inputValue).then((data: (IResults[] | null)) => {
-        if (data) this.onAddValue.emit(data)
-      })
+      this.getContent(this.inputValue).then((data: IResults[] | null) => {
+        if (data) this.onAddValue.emit(data);
+      });
 
       this.inputValue = '';
     }

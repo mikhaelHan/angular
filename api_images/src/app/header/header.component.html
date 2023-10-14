@@ -6,8 +6,8 @@
         <h1 class='head-container__title'>Unsplash API</h1>
       </section>
       <section class='head-container__right'>
-        <input (keydown.enter)='onClick()' [(ngModel)]='inputValue' class='head-container__input'
-          placeholder='Search...' type='search'>
+        <input (keydown.enter)='onClick()' (search)="onClick()" [(ngModel)]='inputValue' class='head-container__input'
+               placeholder='Search...' type='search'>
       </section>
     </div>
   </div>
