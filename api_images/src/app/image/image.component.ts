@@ -9,7 +9,9 @@ import { IResults } from '../client_Api/Api.interfaces';
 export class ImageComponent implements OnInit {
   @Input() img: IResults | undefined;
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

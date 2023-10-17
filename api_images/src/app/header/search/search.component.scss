@@ -1,0 +1,28 @@
+$search-color: rgb(190, 190, 190);
+
+.input-container {
+  position: relative;
+}
+
+.search-cross {
+  position: absolute;
+  left: 325px;
+  top: 10px;
+  background: none;
+  color: $search-color;
+}
+
+.search {
+  width: 350px;
+  padding: 7px 13px;
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: $search-color;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &::placeholder {
+    color: $search-color;
+  }
+}

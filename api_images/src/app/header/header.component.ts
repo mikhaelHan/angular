@@ -1,44 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IApiRequest, IResults } from '../client_Api/Api.interfaces';
-import { ClientApi } from '../client_Api/Client.Api';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss', '../app.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  @Output() onAddValue: EventEmitter<IResults[]> = new EventEmitter<
-    IResults[]
-  >();
-  inputValue = '';
-  private clientApi: ClientApi;
-
-  constructor() {
-    this.clientApi = new ClientApi();
-  }
-
-  async getContent(word: string): Promise<IResults[] | null> {
-    const response: IApiRequest | null = await this.clientApi.apiRequest(word);
-
-    if (!response || !response.results) return null;
-
-    return response.results;
-  }
-
-  ngOnInit(): void {
-    this.getContent('car').then((data: IResults[] | null) => {
-      if (data) this.onAddValue.emit(data);
-    });
-  }
-
-  onClick() {
-    if (this.inputValue.trim()) {
-      this.getContent(this.inputValue).then((data: IResults[] | null) => {
-        if (data) this.onAddValue.emit(data);
-      });
-
-      this.inputValue = '';
-    }
-  }
+export class HeaderComponent {
+  @Output() search = new EventEmitter<string | undefined>;
 }

@@ -30,6 +30,12 @@ main {
   }
 }
 
+.no-result {
+  margin: 300px auto;
+  color: wheat;
+  font-size: 24px;
+}
+
 @media (max-width: 769px) {
   .main-container {
     &__box {

@@ -1,0 +1,4 @@
+<div class="input-container">
+  <input #search class='search' type="text" (input)="onSearch($event)" placeholder="Search...">
+  <button class="search-cross" *ngIf="search.value" (click)="searchClear()">✖</button>
+</div>
